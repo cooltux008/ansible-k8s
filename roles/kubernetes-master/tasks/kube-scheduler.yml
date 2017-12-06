@@ -1,4 +1,17 @@
 ---
+- name: download kube-scheduler MD5
+  get_url:
+    url: "{{ kubernetes_binary_url }}/kube-scheduler.MD5"
+    dest: /tmp
+
+- name: check md5
+  shell: "[ $(md5sum /usr/bin/kube-scheduler|awk '{print $1}') == $(cat /tmp/kube-scheduler.MD5) ]"
+  register: md5_result
+  ignore_errors: true
+
+- debug:
+    msg: "{{ md5_result }}"
+
 - name: fetch kube-scheduler binary to PATH(/usr/bin)
   get_url:
     url: "{{ kubernetes_binary_url }}/kube-scheduler"
@@ -7,6 +20,7 @@
     group: root
     mode: 0755
   notify: restart kube-scheduler
+  when: md5_result.rc != 0
 
 - name: create kube-scheduler configuration
   template: 

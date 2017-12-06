@@ -1,0 +1,31 @@
+[all:vars]
+ansible_user=admin   
+ansible_ssh_private_key_file=~/.ssh/id_rsa   
+ansible_become=true   
+ansible_become_method=sudo   
+ansiblie_become_user=root   
+ansible_become_pass={{ vault_the_dev_secret }}
+
+[etcd-node]
+etcd-node1 ansible_hostname=kubernetes-master1 ansible_host=192.168.130.11
+etcd-node2 ansible_hostname=kubernetes-master2 ansible_host=192.168.130.12
+etcd-node3 ansible_hostname=kubernetes-node1 ansible_host=192.168.130.13
+
+[kubernetes-client]
+kubernetes-master1 ansible_hostname=kubernetes-master1 ansible_host=192.168.130.11
+
+[kubernetes-master]
+kubernetes-master1 ansible_hostname=kubernetes-master1 ansible_host=192.168.130.11
+kubernetes-master2 ansible_hostname=kubernetes-master2 ansible_host=192.168.130.12
+
+[kubernetes-node]
+kubernetes-node1 ansible_hostname=kubernetes-node1 ansible_host=192.168.130.13
+kubernetes-node2 ansible_hostname=kubernetes-node2 ansible_host=192.168.130.14
+
+[haproxy-node]
+haproxy-node1 ansible_hostname=haproxy-node1 ansible_host=192.168.130.15 
+haproxy-node2 ansible_hostname=haproxy-node2 ansible_host=192.168.130.16
+
+[keepalived-node]
+keepalived-node1 ansible_hostname=keepalived-node1 ansible_host=192.168.130.15 keepalived_tate=MASTER keepalived_virtual_router_id=51 keepalived_priority=100
+keepalived-node2 ansible_hostname=keepalived-node2 ansible_host=192.168.130.16 keepalived_tate=BACKUP keepalived_virtual_router_id=61 keepalived_priority=90

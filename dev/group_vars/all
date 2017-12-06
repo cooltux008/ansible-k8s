@@ -2,11 +2,11 @@
 # common vars
 timezone: Asia/Shanghai
 domain_name: example.com
-ntp_server: time.nist.gov
+ntp_server: 192.168.130.254
 
 # etcd vars
 etcd_version: v3.2.7
-etcd_bin_tar_url: http://192.168.130.1/ftp/linux_soft/k8s/etcd-{{ etcd_version }}-linux-amd64.tar.gz
+etcd_bin_tar_url: http://192.168.130.1/ftp/linux_soft/k8s
 etcd_initial_cluster: etcd-node1=http://192.168.130.11:2380,etcd-node2=http://192.168.130.12:2380,etcd-node3=http://192.168.130.13:2380
 
 # calico vars
@@ -35,7 +35,7 @@ nginx_ingress_controller_image: "{{ docker_registry }}/kubernetes-ingress-contro
 etcd_servers: http://192.168.130.11:2379,http://192.168.130.12:2379,http://192.168.130.13:2379
 kubernetes_version: v1.7
 kubernetes_binary_url: http://192.168.130.1/ftp/linux_soft/k8s/{{ kubernetes_version }}
-kubernetes_apiserver: http://192.168.130.100:8080
+kubernetes_apiserver: http://192.168.130.11:8080
 
 # haproxy vars
 haproxy_k8s_apiserver_port: 8080

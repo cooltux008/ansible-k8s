@@ -26,6 +26,9 @@
     path: "{{ item }}"
     state: absent
   with_items:
+    - /tmp/kube-apiserver.MD5
+    - /tmp/kube-controller-manager.MD5
+    - /tmp/kube-scheduler.MD5
     - /usr/bin/kube-apiserver
     - /usr/bin/kube-controller-manager
     - /usr/bin/kube-scheduler

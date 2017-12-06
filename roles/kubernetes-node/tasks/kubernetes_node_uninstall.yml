@@ -14,6 +14,8 @@
     path: "{{ item }}"
     state: absent
   with_items:
+    - /tmp/kubelet.MD5
+    - /tmp/kube-proxy.MD5
     - /usr/bin/kubelet
     - /usr/bin/kube-proxy
     - /etc/kubernetes

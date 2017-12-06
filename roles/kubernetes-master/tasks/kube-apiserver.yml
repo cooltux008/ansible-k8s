@@ -13,6 +13,19 @@
     append: yes
     system: yes
 
+- name: download kube-apiserver MD5
+  get_url:
+    url: "{{ kubernetes_binary_url }}/kube-apiserver.MD5"
+    dest: /tmp
+
+- name: check md5
+  shell: "[ $(md5sum /usr/bin/kube-apiserver|awk '{print $1}') == $(cat /tmp/kube-apiserver.MD5) ]"
+  register: md5_result
+  ignore_errors: true
+
+- debug:
+    msg: "{{ md5_result }}"
+
 - name: fetch kube-apiserver binary to PATH(/usr/bin)
   get_url:
     url: "{{ kubernetes_binary_url }}/kube-apiserver"
@@ -21,6 +34,7 @@
     group: root
     mode: 0755
   notify: restart kube-apiserver
+  when: md5_result.rc != 0
 
 - name: create kube-apiserver configuration
   template: 
