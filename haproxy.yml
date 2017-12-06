@@ -1,0 +1,7 @@
+---
+- hosts: 
+    - haproxy-node
+  roles:
+    - haproxy
+  vars_files: 
+    - dev/group_vars/all

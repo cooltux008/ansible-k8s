@@ -1,0 +1,5 @@
+---
+- name: remove kubectl
+  file:
+    path: /usr/bin/kubectl
+    state: absent

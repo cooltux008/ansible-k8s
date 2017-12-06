@@ -1,0 +1,7 @@
+---
+- hosts: 
+    - keepalived-node
+  roles:
+    - keepalived
+  vars_files: 
+    - dev/group_vars/all

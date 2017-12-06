@@ -1,0 +1,3 @@
+---
+- import_tasks: keepalived_{{ install_or_uninstall }}.yml
+  tags: keepalived

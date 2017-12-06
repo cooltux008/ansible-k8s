@@ -1,0 +1,23 @@
+---
+- name: stop the keepalived service
+  service: 
+    name: keepalived 
+    state: stopped 
+    enabled: no
+  ignore_errors: true
+
+- name: uninstall keepalived
+  yum: 
+    name: "{{ item }}"
+    state: absent
+    update_cache: yes
+  with_items:
+    - keepalived
+
+- name: remove keepalived directories
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /etc/keepalived
+    - /etc/sysconfig/keepalived
