@@ -5,7 +5,7 @@
     dest: /tmp
 
 - name: check md5
-  shell: "[ $(md5sum /usr/bin/kube-controller-manager|awk '{print $1}') == $(cat /tmp/kube-controller-manager.MD5) ]"
+  shell: "[ \"$(md5sum /usr/bin/kube-controller-manager 2>/dev/null|awk '{print $1}')\" == \"$(cat /tmp/kube-controller-manager.MD5)\" ]"
   register: md5_result
   ignore_errors: true
 

@@ -5,7 +5,7 @@
     dest: /tmp
 
 - name: check md5
-  shell: "[ $(md5sum /usr/bin/kubelet|awk '{print $1}') == $(cat /tmp/kubelet.MD5) ]"
+  shell: "[ $(md5sum /usr/bin/kubelet 2>/dev/null|awk '{print $1}') == $(cat /tmp/kubelet.MD5) ]"
   register: md5_result
   ignore_errors: true
 
@@ -22,7 +22,7 @@
   notify: restart kubelet
   when: md5_result.rc != 0
 
-- name: create kubernetes-node directory
+- name: create kubernetes-worker directory
   file:
     path: "{{ item }}"
     state: directory
@@ -33,7 +33,7 @@
     - /etc/kubernetes
     - /var/lib/kubelet
 
-- name: create kubernetes-node configuration
+- name: create kubernetes-worker configuration
   template: 
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"

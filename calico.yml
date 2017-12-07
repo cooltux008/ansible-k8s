@@ -1,7 +1,7 @@
 ---
 - hosts: 
     - kubernetes-master
-    - kubernetes-node
+    - kubernetes-worker
   roles:
     - calico-node
   vars_files: 
@@ -15,7 +15,7 @@
     - dev/group_vars/all
 
 - hosts: 
-    - kubernetes-node
+    - kubernetes-worker
   roles:
     - calico-cni
   vars_files: 

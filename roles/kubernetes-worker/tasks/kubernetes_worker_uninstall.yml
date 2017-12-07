@@ -1,5 +1,5 @@
 ---
-- name: stop kubernetes-node 
+- name: stop kubernetes-worker 
   service: 
     name: "{{ item }}"
     state: stopped
@@ -9,7 +9,7 @@
     - kube-proxy
   ignore_errors: true
 
-- name: remove kubernetes-node directories & configurations
+- name: remove kubernetes-worker directories & configurations
   file:
     path: "{{ item }}"
     state: absent

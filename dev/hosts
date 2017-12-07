@@ -5,7 +5,7 @@ ansible_ssh_private_key_file=~/.ssh/id_rsa
 [etcd-node]
 etcd-node1 ansible_hostname=kubernetes-master1 ansible_host=192.168.130.11
 etcd-node2 ansible_hostname=kubernetes-master2 ansible_host=192.168.130.12
-etcd-node3 ansible_hostname=kubernetes-node1 ansible_host=192.168.130.13
+etcd-node3 ansible_hostname=kubernetes-worker1 ansible_host=192.168.130.13
 
 [kubernetes-client]
 kubernetes-master1 ansible_hostname=kubernetes-master1 ansible_host=192.168.130.11
@@ -14,9 +14,9 @@ kubernetes-master1 ansible_hostname=kubernetes-master1 ansible_host=192.168.130.
 kubernetes-master1 ansible_hostname=kubernetes-master1 ansible_host=192.168.130.11
 kubernetes-master2 ansible_hostname=kubernetes-master2 ansible_host=192.168.130.12
 
-[kubernetes-node]
-kubernetes-node1 ansible_hostname=kubernetes-node1 ansible_host=192.168.130.13
-kubernetes-node2 ansible_hostname=kubernetes-node2 ansible_host=192.168.130.14
+[kubernetes-worker]
+kubernetes-worker1 ansible_hostname=kubernetes-worker1 ansible_host=192.168.130.13
+kubernetes-worker2 ansible_hostname=kubernetes-worker2 ansible_host=192.168.130.14
 
 [haproxy-node]
 haproxy-node1 ansible_hostname=haproxy-node1 ansible_host=192.168.130.15 
