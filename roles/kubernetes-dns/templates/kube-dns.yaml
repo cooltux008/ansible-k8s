@@ -83,7 +83,6 @@ spec:
         - --domain=cluster.local.
         - --dns-port=10053
         - --config-map=kube-dns
-        - --kube-master-url={{ kubernetes_apiserver }}
         # This should be set to v=2 only after the new image (cut from 1.5) has
         # been released, otherwise we will flood the logs.
         - --v=0
