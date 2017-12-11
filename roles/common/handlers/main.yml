@@ -1,5 +1,5 @@
 ---
-- name: yum-clean-metadata
-  command: yum clean metadata
+- name: yum-clean-all
+  command: yum clean all
   args:
     warn: no
