@@ -19,5 +19,5 @@
     - { src: 'influxdb.yaml', dest: 'influxdb.yaml' }
     - { src: 'grafana.yaml', dest: 'grafana.yaml' }
     - { src: 'heapster-rbac.yaml', dest: 'heapster-rbac.yaml' }
-    - { src: 'kubernetes-dashboard.yaml', dest: 'kubernetes-dashboard.yaml' }
+    - { src: 'kubernetes-dashboard_{{ kubernetes_dashboard_version }}.yaml', dest: 'kubernetes-dashboard.yaml' }
   notify: apply k8s-dashboard
