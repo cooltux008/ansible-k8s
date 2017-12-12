@@ -3,4 +3,3 @@
   command: yum clean all
   args:
     warn: no
-  async: 2
