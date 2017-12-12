@@ -1,17 +1,21 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: busybox-nfs-pod 
+  name: busybox-nfs
   labels:
-    name: busybox-nfs-pod
+    name: busybox-nfs
 spec:
   containers:
-  - name: busybox-nfs-pod
+  - name: busybox-nfs
     image: 192.168.130.1:5000/google_containers/busybox
-    command: ["sleep", "60000"]
+    command:
+      - sh
+      - -c
+      - 'while true; do date > /mnt/index.html; hostname >> /mnt/index.html; sleep $(($RANDOM % 5 + 5)); done'
+    imagePullPolicy: IfNotPresent
     volumeMounts:
     - name: nfsvol-2 
-      mountPath: /usr/share/busybox  
+      mountPath: /mnt
       readOnly: false
   securityContext:
     supplementalGroups: [100003] 
