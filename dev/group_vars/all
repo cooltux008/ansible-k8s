@@ -7,7 +7,6 @@ ntp_server: 192.168.130.254
 # etcd vars
 etcd_version: v3.2.7
 etcd_bin_tar_url: http://192.168.130.1/ftp/linux_soft/k8s
-etcd_initial_cluster: etcd-node1=http://192.168.130.11:2380,etcd-node2=http://192.168.130.12:2380,etcd-node3=http://192.168.130.13:2380
 
 # calico vars
 calico_cni_binary_url: http://192.168.130.1/ftp/linux_soft/k8s/calico/v1.11.1
