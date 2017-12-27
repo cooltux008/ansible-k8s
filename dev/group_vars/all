@@ -33,7 +33,7 @@ kubernetes_dashboard_image: "{{ docker_registry }}/google_containers/kubernetes-
 
 # k8s vars
 etcd_servers: http://192.168.130.11:2379,http://192.168.130.12:2379,http://192.168.130.13:2379
-kubernetes_version: v1.8
+kubernetes_version: v1.9
 kubernetes_binary_url: http://192.168.130.1/ftp/linux_soft/k8s/{{ kubernetes_version }}
 kubernetes_apiserver: http://192.168.130.100:8080
 

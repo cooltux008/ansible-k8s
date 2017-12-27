@@ -5,7 +5,7 @@
     dest: /tmp
 
 - name: check md5
-  shell: "[ \"$(md5sum /usr/bin/kube-proxy 2>/dev/null|awk '{print $1}')\" == \"$(cat /tmp/kube-proxy.MD5)\" ]"
+  shell: "[[ \"$(md5sum /usr/bin/kube-proxy|awk '{print $1}')\" == \"$(cat /tmp/kube-proxy.MD5)\" ]]"
   register: md5_result
   ignore_errors: true
 

@@ -19,7 +19,7 @@
     dest: /tmp
 
 - name: check md5
-  shell: "[ \"$(md5sum /usr/bin/kube-apiserver 2>/dev/null|awk '{print $1}')\" == \"$(cat /tmp/kube-apiserver.MD5)\" ]"
+  shell: "[[ \"$(md5sum /usr/bin/kube-apiserver|awk '{print $1}')\" == \"$(cat /tmp/kube-apiserver.MD5)\" ]]"
   register: md5_result
   ignore_errors: true
 
