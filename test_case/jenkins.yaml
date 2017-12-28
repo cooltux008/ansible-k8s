@@ -1,0 +1,42 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-svc
+  labels:
+    app: jenkins
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 32002
+  selector:
+    app: jenkins
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+      - name: jenkins-pod
+        image: 10.214.162.127/devops/jenkins:2.32.2
+        ports:
+        - containerPort: 8080
+       # volumeMounts:
+       # - name: glusterfs
+         # mountPath: /var/jenkins_home
+        #securityContext:
+         # runAsUser: 0
+          #allowPrivilegeEscalation: false
+      #volumes:
+      #- name: glusterfs
+       # persistentVolumeClaim:
+        #  claimName: glusterfs-jenkins-0
