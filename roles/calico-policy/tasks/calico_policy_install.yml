@@ -15,6 +15,6 @@
     group: root
     mode: 0644
   with_items:
-    - { src: 'policy-controller.yaml', dest: 'policy-controller.yaml' }
+    - { src: 'calico-kube-controllers.yaml', dest: 'calico-kube-controllers.yaml' }
     - { src: 'rbac.yaml', dest: 'rbac.yaml' }
   notify: apply calico-policy-controller
