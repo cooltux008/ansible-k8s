@@ -5,7 +5,7 @@ metadata:
   #namespace: kube-system
 spec:
   rules:
-  - host: helloworld.mmm
+  - host: example.com
     http:
       paths:
       - path: /demo1
