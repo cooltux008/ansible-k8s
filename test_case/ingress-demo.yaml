@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: dashboard-demo
-  #dnamespace: kube-system
+  #namespace: kube-system
 spec:
   rules:
   - host: helloworld.mmm
