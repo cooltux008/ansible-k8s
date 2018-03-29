@@ -20,7 +20,7 @@ spec:
       containers:
       - name: nexus
         image: sonatype/nexus3:3.8.0
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
          - name: INSTALL4J_ADD_VM_PARAMS
            value: "-Xms4096M -Xmx4096M -XX:MaxDirectMemorySize=2G -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
