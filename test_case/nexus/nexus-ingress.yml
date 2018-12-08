@@ -5,7 +5,7 @@ metadata:
   namespace: common
 spec:
   rules:
-    - host: nexus.cosmoplat.com
+    - host: nexus.example.com
       http:
         paths:
         - path: /
